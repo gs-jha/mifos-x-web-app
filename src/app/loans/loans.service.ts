@@ -551,6 +551,15 @@ export class LoansService {
     return this.http.post('/loans?command=calculateLoanSchedule', payload);
   }
 
+  getLoans(orderBy: string, sortOrder: string, offset: number, limit: number): Observable<any> {
+    const httpParams = new HttpParams()
+      .set('offset', offset.toString())
+      .set('limit', limit.toString())
+      .set('sortOrder', sortOrder)
+      .set('orderBy', orderBy);
+    return this.http.get('/loans', { params: httpParams });
+  }
+
   /**
    * @param loansAccount Loan account data used for the request
    * @param loansAccountTemplate Loan account template for getting product default values

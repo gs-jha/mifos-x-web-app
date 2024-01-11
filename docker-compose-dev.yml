@@ -1,0 +1,43 @@
+version: '3.5'
+
+services:
+  gyandhan-lms-web-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - BUILD_ENVIRONMENT_OPTIONS=--configuration production
+        - BUILDER_IMAGE=node:20-alpine
+        - NGINX_IMAGE=nginx:1.19.3
+        - NPM_REGISTRY_URL=https://registry.npmjs.org/
+        - PUPPETEER_DOWNLOAD_HOST_ARG=https://storage.googleapis.com
+        - PUPPETEER_CHROMIUM_REVISION_ARG=1011831
+    environment:
+      - FINERACT_API_URLS=https://dev.mifos.io,https://demo.mifos.io,https://qa.mifos.io,https://staging.mifos.io,https://mobile.mifos.io,https://demo.fineract.dev,https://localhost:8443
+      - FINERACT_API_URL=https://localhost:8443
+      - FINERACT_API_PROVIDER=/fineract-provider/api
+      - FINERACT_API_VERSION=/v1
+      - FINERACT_PLATFORM_TENANT_IDENTIFIER=default
+      - MIFOS_DEFAULT_LANGUAGE=en-US
+      - MIFOS_SUPPORTED_LANGUAGES=en-US,fr-FR
+    container_name: lms_app
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - proxy
+    labels:
+      # Enable this container to be mapped by traefik
+      # For more information, see: https://docs.traefik.io/providers/docker/#exposedbydefault
+      - "traefik.enable=true"
+      # Define the network that should be used
+      - "traefik.docker.network=proxy"
+      # URL to reach this container
+      - "traefik.http.routers.gyandhan-lms-web-app.rule=Host(`weblms.gyandhan.localhost`)"
+      # Activation of TLS
+      - "traefik.http.routers.gyandhan-lms-web-app.tls=true"
+      # If port is different than 80, use the following service:
+      #- "traefik.http.services.gyandhan-lms-app.loadbalancer.server.port=9002"
+
+networks:
+  proxy:
+    external: true

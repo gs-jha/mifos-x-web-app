@@ -42,6 +42,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DatePipe, LocationStrategy } from '@angular/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LoansModule } from './loans/loans.module';
 
 /**
  * App Module
@@ -90,7 +91,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CollectionsModule,
     TasksModule,
     ConfigurationWizardModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LoansModule
   ],
   declarations: [WebAppComponent, NotFoundComponent],
   providers: [DatePipe],

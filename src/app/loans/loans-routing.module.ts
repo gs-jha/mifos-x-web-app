@@ -60,6 +60,7 @@ import { ExternalAssetOwnerActiveTransferResolver } from './common-resolvers/ext
 import { LoanCollateralsResolver } from './common-resolvers/loan-collaterals.resolver';
 import { LoanDelinquencyDataResolver } from './common-resolvers/loan-delinquency-data.resolver';
 import { LoanDelinquencyActionsResolver } from './common-resolvers/loan-delinquency-actions.resolver';
+import { LoansComponent } from './loans.component';
 
 /** Loans Route. */
 const routes: Routes = [
@@ -342,6 +343,11 @@ const routes: Routes = [
         },
       }
     ]
+  },
+  {
+    path: 'loans',
+    data: { title: 'Loans', breadcrumb: 'Loans', routeParamBreadcrumb: false },
+    component: LoansComponent,
   }
 ];
 @NgModule({

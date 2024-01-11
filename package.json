@@ -1,14 +1,14 @@
 {
-  "name": "mifosx-web-app",
+  "name": "gyandhan-web-app",
   "version": "0.0.0",
-  "description": "MifosX Web App is the default web application built on top of the Fineract platform for the Mifos user community leveraging the popular Angular framework.",
+  "description": "Gyandhan Web App is the default web application built on top of the Fineract platform for the Gyandhan user community leveraging the popular Angular framework.",
   "keywords": [
-    "mifos",
+    "gyandhan",
     "openmf",
     "fineract",
     "angular"
   ],
-  "homepage": "https://github.com/openMF/web-app",
+  "homepage": "https://gyandhan.com",
   "license": "MPL-2.0",
   "scripts": {
     "ng": "ng",
@@ -36,13 +36,13 @@
     "@angular/common": "14.3.0",
     "@angular/compiler": "14.3.0",
     "@angular/core": "14.3.0",
+    "@angular/flex-layout": "^14.0.0-beta.40",
     "@angular/forms": "14.3.0",
     "@angular/localize": "14.3.0",
     "@angular/material": "14.2.7",
     "@angular/platform-browser": "14.3.0",
     "@angular/platform-browser-dynamic": "14.3.0",
     "@angular/router": "14.3.0",
-    "@angular/flex-layout": "^14.0.0-beta.40",
     "@ckeditor/ckeditor5-angular": "1.2.3",
     "@ckeditor/ckeditor5-build-classic": "21.0.0",
     "@fortawesome/angular-fontawesome": "0.11.1",
@@ -59,7 +59,7 @@
     "lodash": "4.17.21",
     "moment": "^2.29.4",
     "rxjs": "6.6.2",
-    "tslib": "^2.0.0",
+    "tslib": "^2.6.2",
     "vkbeautify": "^0.99.2",
     "zone.js": "0.11.6"
   },
